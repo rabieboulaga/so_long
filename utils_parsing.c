@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 20:35:58 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/06/14 05:03:44 by rboulaga         ###   ########.fr       */
+/*   Created: 2024/06/13 19:22:56 by rboulaga          #+#    #+#             */
+/*   Updated: 2024/06/13 19:23:08 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "so_long.h"
 
-int main(int ac, char **av)
+void	*ft_memset(void *b, int c, size_t len)
 {
-    t_data data;
-    
-    ft_memset(&data, 0, sizeof(t_data));
-    (void)ac;
-    parsing(ac, av, &data);
-    printf("%s", data.str_map);
+	unsigned char	*bs;
+	unsigned char	ps;
+	size_t			i;
+
+	bs = (unsigned char *)b;
+	ps = (unsigned char)c;
+	i = 0;
+	while (i < len)
+	{
+		bs[i] = ps;
+		i++;
+	}
+	return (bs);
 }

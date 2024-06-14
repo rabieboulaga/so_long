@@ -7,6 +7,7 @@ SRC = parsing.c\
 	main.c\
 	get_next_line.c\
 	get_next_line_utils.c\
+	utils_parsing.c\
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/06/12 22:53:20 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/06/13 23:01:33 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct c_stack
 	int				fd;
     char            *str_map;
     char            *safe_map;
-	long long		data;
 }					t_data;
 
 char	*get_next_line(int fd);
@@ -36,7 +35,8 @@ char	*ft_strdupp(char *s);
 char	*ft_strchrr(char *s, int c);
 char	*leftside(char *reminder);
 char	*rightside(char *reminder);
-void    parsing(int ac, char **av);
+void    parsing(int ac, char **av, t_data *data);
+void	*ft_memset(void *b, int c, size_t len);
 
 
 
