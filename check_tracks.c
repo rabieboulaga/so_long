@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:43:31 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/06/28 18:54:17 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:24:46 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ void find_item(t_data *data, char c)
         while (data->map_copie[j][i] && data->map_copie[j][i] != c)
             i++;
         if (data->map_copie[j][i] == c)
-        {
             safe_exit(1, data, 0); 
-        }
         j++;
     }      
 }

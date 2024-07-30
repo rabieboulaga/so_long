@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/04 17:26:14 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/07/30 11:28:24 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct c_stack
     void            *wall_image;
     int             img_width;
     int             img_height;
+    int             collectibles;
 }					t_data;
 
 char	*get_next_line(int fd);
@@ -64,8 +65,12 @@ void    coordinates(t_data *data);
 void    flood_fill(int x, int y, char **str);
 void    find_item(t_data *data, char c);
 void    display_map(t_data *data);
-void    put_image(t_data *data);
 void    images_data(t_data *data);
+void    put_images(t_data *data);
+void    put_all_images(t_data *data, char c, char *path_images);
+int     player_movements(int key, t_data *data);
+void    number_of_collectibles(t_data *data);
+
 
 
 # endif
