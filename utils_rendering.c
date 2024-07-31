@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:27:16 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/30 11:28:06 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:58:57 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ void    number_of_collectibles(t_data *data)
     i = 0;
     while (data->map_real[j])
     {
+        i = 0;
         while (data->map_real[j][i])
         {
             if(data->map_real[j][i] == 'C')
-                data->collectibles;
+                data->collectibles++;
             i++;
         }
         j++;
     }
+    printf("%d\n", data->collectibles);
 }

@@ -12,6 +12,7 @@ SRC = parsing.c\
 	check_tracks.c\
 	display_map.c\
 	player_movements.c\
+	utils_rendering.c\
 
 OBJ = $(SRC:.c=.o)
 

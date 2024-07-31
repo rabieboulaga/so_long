@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:29:42 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/30 11:29:15 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:11:08 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,9 @@ void    put_all_images(t_data *data, char c, char *path_images)
 }
 void    put_images(t_data *data)
 {
-    number_of_collectibles(data);    
     put_all_images(data, '1', "images/img.xpm");
     put_all_images(data, '0', "images/my.xpm");
-    put_all_images(data, 'P', "images/playerxpm.xpm");
+    put_all_images(data, 'P', "images/playerup.xpm");
     put_all_images(data, 'E', "images/lastexit.xpm");
     put_all_images(data, 'C', "images/lastcollect.xpm");
 }
@@ -94,9 +93,10 @@ void    rendering(t_data *data)
     // printf("%p", data->mlx_ptr);
     //check the return value 
     data->mlx_window = mlx_new_window(data->mlx_ptr, 50 * data->x, 50 * data->y, "so_long");
-    //check the return value
+    //check the return value    
     put_images(data);
-    mlx_hook(data->mlx_window, 02, (1L<<0 ) , player_movements, data);
+    
+    mlx_hook(data->mlx_window, 02, (1L<<0) , player_movements, data);
     mlx_loop(data->mlx_ptr);
 }
 
