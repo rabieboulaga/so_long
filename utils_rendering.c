@@ -6,11 +6,32 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:27:16 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/31 15:20:40 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:41:15 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void    put_moves(int num)
+{
+    if (num > 9)
+        put_moves(num / 10);
+    write (1, &"0123456789"[num % 10], 1);    
+}
+void    put_str(char *str, int num)
+{
+    int i;
+     
+    i = 0;
+    while (str[i])
+    {
+        write (1, &str[i], 1);
+        i++;
+    }
+    put_moves(num);
+    write (1, "\n", 1);
+}
+
 
 void    images_data(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/31 15:21:14 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:41:41 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct c_stack
     int             img_width;
     int             img_height;
     int             collectibles;
+    int             number_of_moves;
 }					t_data;
 
 char	*get_next_line(int fd);
@@ -76,6 +77,8 @@ void    put_images(t_data *data);
 void    put_all_images(t_data *data, char c, void *images);
 int     player_movements(int key, t_data *data);
 void    number_of_collectibles(t_data *data);
+void    put_moves(int num);
+void    put_str(char *str, int num);
 
 
 

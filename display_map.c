@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:29:42 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/31 19:38:45 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:07:51 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,10 @@ void    put_images(t_data *data)
 
 void    rendering(t_data *data)
 {
+    number_of_collectibles(data);
+    
     data->mlx_ptr = mlx_init();
+    
     
     images_data(data);
     
