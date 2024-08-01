@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/07/30 12:25:17 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:21:14 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ typedef struct c_stack
     void            *mlx_window;
     void            *background_image;
     void            *wall_image;
+    void            *playerright;
+    void            *playerleft;
+    void            *playerup;
+    void            *playerdown;
+    void            *collect_image;
+    void            *exit_image;
     int             img_width;
     int             img_height;
     int             collectibles;
@@ -67,7 +73,7 @@ void    find_item(t_data *data, char c);
 void    display_map(t_data *data);
 void    images_data(t_data *data);
 void    put_images(t_data *data);
-void    put_all_images(t_data *data, char c, char *path_images);
+void    put_all_images(t_data *data, char c, void *images);
 int     player_movements(int key, t_data *data);
 void    number_of_collectibles(t_data *data);
 
