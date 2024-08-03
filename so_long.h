@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/02 12:59:08 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:27:42 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void    number_of_collectibles(t_data *data);
 void    put_moves(int num);
 void    put_str(char *str, int num);
 void    free_images(t_data *data);
-
+void    the_end(int nothing, t_data *data, int order);
 
 
 # endif

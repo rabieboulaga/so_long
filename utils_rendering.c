@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:27:16 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/02 18:06:43 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:29:26 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ void    number_of_collectibles(t_data *data)
         }
         j++;
     }
-    printf("%d\n", data->collectibles);
 }

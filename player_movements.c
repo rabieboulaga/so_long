@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:28:48 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/03 16:18:54 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:43:30 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void    left(t_data *data)
         data->number_of_moves++;
         put_str("Number of mover : ", data->number_of_moves);
         free_images(data);
-        safe_exit(1, data, 0);
-        exit(0);       
+        free(data->mlx_ptr);
+        the_end(1, data, 0);
     }
 }
 
@@ -42,7 +42,6 @@ void    right(t_data *data)
     {
         if (data->map_real[data->yP][data->xP + 1] == 'C' && data->collectibles != 0)
             data->collectibles--;
-        put_str("Number if collectibels : ", data->collectibles);
         data->map_real[data->yP][data->xP] = '0';
         data->map_real[data->yP][data->xP + 1] = 'P';
         put_all_images(data, 'P', data->playerright);
@@ -56,8 +55,8 @@ void    right(t_data *data)
         data->number_of_moves++;
         put_str("Number of mover : ", data->number_of_moves);
         free_images(data);
-        safe_exit(1, data, 0);
-        exit(0);       
+        free(data->mlx_ptr);
+        the_end(1, data, 0);
     }
 }
 void    up(t_data *data)
@@ -66,7 +65,6 @@ void    up(t_data *data)
     {
         if (data->map_real[data->yP - 1][data->xP] == 'C' && data->collectibles != 0)
             data->collectibles--;
-        put_str("Number if collectibels : ", data->collectibles);
         data->map_real[data->yP][data->xP] = '0';
         data->map_real[data->yP - 1][data->xP] = 'P';
         put_all_images(data, 'P', data->playerup);
@@ -78,10 +76,10 @@ void    up(t_data *data)
     else if (data->map_real[data->yP - 1][data->xP] == 'E' && data->collectibles == 0)
     {
         data->number_of_moves++;
-        put_str("Number of mover : ", data->number_of_moves);
+        put_str("Number of moves : ", data->number_of_moves);
         free_images(data);
-        safe_exit(1, data, 0);
-        exit(0);       
+        free(data->mlx_ptr);
+        the_end(1, data, 0);
     }
 }
 
@@ -91,23 +89,21 @@ void    down(t_data *data)
     {
         if (data->map_real[data->yP + 1][data->xP] == 'C' && data->collectibles != 0)
             data->collectibles--;
-        put_str("Number if collectibels : ", data->collectibles);
         data->map_real[data->yP][data->xP] = '0';
         data->map_real[data->yP + 1][data->xP] = 'P';
         put_all_images(data, 'P', data->playerdown);
         put_all_images(data, '0', data->background_image);
         data->yP += 1;
         data->number_of_moves++;
-        put_str("Number of mover : ", data->number_of_moves);
+        put_str("Number of moves : ", data->number_of_moves);
     }
     else if (data->map_real[data->yP + 1][data->xP] == 'E' && data->collectibles == 0)
     {
         data->number_of_moves++;
-        put_str("Number of mover : ", data->number_of_moves);
+        put_str("Number of moves : ", data->number_of_moves);
         free_images(data);
         free(data->mlx_ptr);
-        safe_exit(1, data, 0);
-        exit(0);       
+        the_end(1, data, 0);
     }
 }
 
