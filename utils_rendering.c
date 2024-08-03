@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:27:16 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/01 13:41:15 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:06:43 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ void    put_str(char *str, int num)
     }
     put_moves(num);
     write (1, "\n", 1);
+}
+
+void    free_images(t_data *data)
+{
+    mlx_destroy_image(data->mlx_ptr, data->exit_image);
+    mlx_destroy_image(data->mlx_ptr, data->collect_image);
+    mlx_destroy_image(data->mlx_ptr, data->playerdown);
+    mlx_destroy_image(data->mlx_ptr, data->playerleft);
+    mlx_destroy_image(data->mlx_ptr, data->playerright);
+    mlx_destroy_image(data->mlx_ptr, data->playerup);
+    mlx_destroy_image(data->mlx_ptr, data->wall_image);
+    mlx_destroy_image(data->mlx_ptr, data->background_image);
+    mlx_destroy_window(data->mlx_ptr, data->mlx_window);
+    mlx_destroy_display(data->mlx_ptr);
 }
 
 
