@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:59:21 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/06 13:09:06 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:19:48 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	ft_strncmp(const char *str1, const char *str2, int n)
 	while (i < n && (str1[i] != '\0' || str2[i] != '\0'))
 	{
 		if (str1[i] != str2[i])
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void check_path(char *av, t_data *data)
@@ -47,7 +47,9 @@ void check_path(char *av, t_data *data)
 	i--;
 	while (av[i] != '.')
 		i--;
-	if ((!av[i - 1]) || av[i - 1] == '/' || ft_strncmp(&av[i], ".ber", 4) == 0)
+	if ((!av[i - 1]) || av[i - 1] == '/')
+		safe_exit (0, data, 1);
+	if (ft_strncmp(&av[i], ".ber", 5) != 0)
 		safe_exit (0, data, 1);
 }
 

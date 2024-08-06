@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:43:31 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/06 14:39:58 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:57:26 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,19 @@ void    coordinates(t_data *data)
 }
 void    flood_fill_E(int x, int y, char **str)
 { 
-    if (str[y][x] == 'E')
+    if (str[y][x] == 'X' || str[y][x] == 'E')
     {
-            str[y][x] = 'X';
-        flood_fill(x + 1, y, str);
-        flood_fill(x - 1, y, str);
-        flood_fill(x, y + 1, str);
-        flood_fill(x, y - 1, str);
+            str[y][x] = 'Z';
+        flood_fill_E(x + 1, y, str);
+        flood_fill_E(x - 1, y, str);
+        flood_fill_E(x, y + 1, str);
+        flood_fill_E(x, y - 1, str);
     }          
 }
 
 void    flood_fill(int x, int y, char **str)
 { 
-    if (str[y][x] == '0' || str[y][x] == 'P' || str[y][x] == 'C')
+    if (str[y][x] == '0' || str[y][x] == 'P' || str[y][x] == 'C' )
     {
             str[y][x] = 'X';
         flood_fill(x + 1, y, str);

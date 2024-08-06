@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:38:53 by rabie             #+#    #+#             */
-/*   Updated: 2024/08/06 14:40:39 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:58:23 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,13 @@ void check_map(t_data *data)
 	coordinates(data);
 	flood_fill(data->xP, data->yP, data->map_copie);
 	find_item(data, 'C');
+
 	flood_fill_E(data->xP, data->yP, data->map_copie);
+	//  int j = 0;
+	// while (data->map_copie[j])
+	// {
+	// 	printf("%s\n", data->map_copie[j]);
+	// 	j++;
+	// }
 	find_item(data, 'E');
 }
