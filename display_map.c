@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:29:42 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/06 13:09:00 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/06 21:15:42 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void    put_all_images(t_data *data, char c, void *images)
 {
     int i;
     int j;
-
+    int x;
+    
+    x = 0;
     i = 0;
     j = 0;  
     while (data->map_real[j])
