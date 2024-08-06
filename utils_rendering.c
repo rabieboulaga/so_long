@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:27:16 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/03 16:29:26 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:46:59 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,49 @@ void    put_str(char *str, int num)
 
 void    free_images(t_data *data)
 {
-    mlx_destroy_image(data->mlx_ptr, data->exit_image);
-    mlx_destroy_image(data->mlx_ptr, data->collect_image);
-    mlx_destroy_image(data->mlx_ptr, data->playerdown);
-    mlx_destroy_image(data->mlx_ptr, data->playerleft);
-    mlx_destroy_image(data->mlx_ptr, data->playerright);
-    mlx_destroy_image(data->mlx_ptr, data->playerup);
-    mlx_destroy_image(data->mlx_ptr, data->wall_image);
-    mlx_destroy_image(data->mlx_ptr, data->background_image);
-    mlx_destroy_window(data->mlx_ptr, data->mlx_window);
+    if (data->exit_image)
+        mlx_destroy_image(data->mlx_ptr, data->exit_image);
+    if (data->collect_image)
+        mlx_destroy_image(data->mlx_ptr, data->collect_image);
+    if (data->playerdown)
+        mlx_destroy_image(data->mlx_ptr, data->playerdown);
+    if (data->playerleft)
+        mlx_destroy_image(data->mlx_ptr, data->playerleft);
+    if (data->playerright)
+        mlx_destroy_image(data->mlx_ptr, data->playerright);
+    if (data->playerup)
+        mlx_destroy_image(data->mlx_ptr, data->playerup);
+    if (data->wall_image)
+        mlx_destroy_image(data->mlx_ptr, data->wall_image);
+    if (data->background_image)
+        mlx_destroy_image(data->mlx_ptr, data->background_image);
+    if (data->mlx_window)
+        mlx_destroy_window(data->mlx_ptr, data->mlx_window);
     mlx_destroy_display(data->mlx_ptr);
+    free(data->mlx_ptr);
+    the_end(1, data, 0);
 }
 
 
 void    images_data(t_data *data)
 {
-    data->wall_image = mlx_xpm_file_to_image(data->mlx_ptr, "images/img.xpm", &data->img_width, &data->img_height);
-    data->background_image = mlx_xpm_file_to_image(data->mlx_ptr, "images/my.xpm", &data->img_width, &data->img_height);
-    data->playerleft = mlx_xpm_file_to_image(data->mlx_ptr, "images/playerleft.xpm", &data->img_width, &data->img_height);
-    data->playerright = mlx_xpm_file_to_image(data->mlx_ptr, "images/playerright.xpm", &data->img_width, &data->img_height);
-    data->playerup = mlx_xpm_file_to_image(data->mlx_ptr, "images/playerup.xpm", &data->img_width, &data->img_height);
-    data->playerdown = mlx_xpm_file_to_image(data->mlx_ptr, "images/playerdown.xpm", &data->img_width, &data->img_height);
-    data->exit_image = mlx_xpm_file_to_image(data->mlx_ptr, "images/lastexit.xpm", &data->img_width, &data->img_height);
-    data->collect_image = mlx_xpm_file_to_image(data->mlx_ptr, "images/lastcollect.xpm", &data->img_width, &data->img_height); 
+    data->wall_image = mlx_xpm_file_to_image(data->mlx_ptr,
+        "textures/img.xpm", &data->img_width, &data->img_height);
+    if (data->wall_image == NULL)
+        free_images(data);
+    data->background_image = mlx_xpm_file_to_image(data->mlx_ptr,
+         "textures/my.xpm", &data->img_width, &data->img_height);
+    if (data->wall_image == NULL)
+        free_images(data);
+    data->playerleft = mlx_xpm_file_to_image(data->mlx_ptr, 
+        "textures/playerleft.xpm", &data->img_width, &data->img_height);
+    if (data->wall_image == NULL)
+        free_images(data);
+    data->playerright = mlx_xpm_file_to_image(data->mlx_ptr,
+         "textures/playerright.xpm", &data->img_width, &data->img_height);
+    if (data->wall_image == NULL)
+        free_images(data);
+    images_data2(data);
 }
 void    number_of_collectibles(t_data *data)
 {

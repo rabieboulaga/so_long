@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/03 16:27:42 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:41:00 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void    put_moves(int num);
 void    put_str(char *str, int num);
 void    free_images(t_data *data);
 void    the_end(int nothing, t_data *data, int order);
+void    images_data2(t_data *data);
+int    closeWindow(t_data *data);
+void    flood_fill_E(int x, int y, char **str);
 
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:38:53 by rabie             #+#    #+#             */
-/*   Updated: 2024/08/02 18:09:17 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:40:39 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,23 @@ void free_map(char **str)
 void check_lines_length(t_data *data)
 {
 	int i;
+	int j;
 
+	j = 0;
 	i = 0;
 	data->x = ft_strlen(data->map_real[0]);
 	while (data->map_real[i])
 	{
+		j = 0;
 		if (data->x != ft_strlen(data->map_real[i]))
 			safe_exit(0, data, 0);
+		while (data->map_real[i][j])
+		{
+			if (data->map_real[i][j] == '1' || data->map_real[i][j] == '0' || data->map_real[i][j] == 'C' || data->map_real[i][j] == 'P' || data->map_real[i][j] == 'E')
+				j++;
+			else
+				safe_exit(0, data, 0);				
+		}
 		i++;
 	}
 }
@@ -93,12 +103,15 @@ void check_walls(t_data *data)
 }
 
 void check_map(t_data *data)
-{	
+{
+	if (!data->map_real[0])
+		safe_exit(0, data, 0);
 	check_lines_length(data);
-	
 	check_walls(data);
 	map_copie(data);
 	coordinates(data);
 	flood_fill(data->xP, data->yP, data->map_copie);
 	find_item(data, 'C');
+	flood_fill_E(data->xP, data->yP, data->map_copie);
+	find_item(data, 'E');
 }

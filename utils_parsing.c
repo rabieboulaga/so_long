@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:22:56 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/03 16:27:22 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:30:30 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void the_end(int nothing, t_data *data, int order)
 	if (order == 0)
 		free_map (data->map_real);
 	free (data);
-	exit (1);
+	exit (0);
 }
 
 void	map_copie(t_data *data)
