@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:12:25 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/06/25 12:08:07 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/07 16:21:57 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,9 @@ char	*get_next_line(int fd)
 	if (!goal)
 		return (NULL);
 	reminder = rightside(reminder);
+	return (goal);
+}
+
 	// if (reminder && reminder[0] == '\0')
 	// 	free (reminder);
 	// reminder = NULL;
-	return (goal);
-}

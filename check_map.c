@@ -6,29 +6,29 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:38:53 by rabie             #+#    #+#             */
-/*   Updated: 2024/08/06 18:58:23 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/07 16:04:52 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void free_map(char **str)
+void	free_map(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		free (str[i]);
+		free(str[i]);
 		i++;
 	}
-	free (str);
+	free(str);
 }
 
-void check_lines_length(t_data *data)
+void	check_lines_length(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	i = 0;
@@ -40,10 +40,12 @@ void check_lines_length(t_data *data)
 			safe_exit(0, data, 0);
 		while (data->map_real[i][j])
 		{
-			if (data->map_real[i][j] == '1' || data->map_real[i][j] == '0' || data->map_real[i][j] == 'C' || data->map_real[i][j] == 'P' || data->map_real[i][j] == 'E')
+			if (data->map_real[i][j] == '1' || data->map_real[i][j] == '0'
+				|| data->map_real[i][j] == 'C' || data->map_real[i][j] == 'P'
+				|| data->map_real[i][j] == 'E')
 				j++;
 			else
-				safe_exit(0, data, 0);				
+				safe_exit(0, data, 0);
 		}
 		i++;
 	}
@@ -58,28 +60,30 @@ void	check_walls_2(t_data *data)
 	i = 0;
 	while (data->map_real[j])
 	{
-		if ((data->map_real[j][0] != '1' && data->map_real[j][0]) || 
-		(data->map_real[j][data->x - 1] != '1' && data->map_real[j][data->x - 1] != '\0'))
+		if ((data->map_real[j][0] != '1' && data->map_real[j][0]) ||
+			(data->map_real[j][data->x - 1] != '1' && data->map_real[j][data->x
+					- 1] != '\0'))
 			safe_exit(0, data, 0);
-		while(data->map_real[j][i++])
+		while (data->map_real[j][i++])
 		{
 			if (data->map_real[j][i] == 'P')
-				data->P++;
+				data->p++;
 			if (data->map_real[j][i] == 'C')
-				data->C++;
+				data->c++;
 			if (data->map_real[j][i] == 'E')
-				data->E++;		
+				data->e++;
 		}
 		i = 0;
-		j++;	
+		j++;
 	}
-	if (data->P != 1 || data->C < 1 || data->E != 1)
-		safe_exit(0 , data, 0);
+	if (data->p != 1 || data->c < 1 || data->e != 1)
+		safe_exit(0, data, 0);
 }
-void check_walls(t_data *data)
+
+void	check_walls(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -102,7 +106,7 @@ void check_walls(t_data *data)
 	check_walls_2(data);
 }
 
-void check_map(t_data *data)
+void	check_map(t_data *data)
 {
 	if (!data->map_real[0])
 		safe_exit(0, data, 0);
@@ -110,15 +114,8 @@ void check_map(t_data *data)
 	check_walls(data);
 	map_copie(data);
 	coordinates(data);
-	flood_fill(data->xP, data->yP, data->map_copie);
+	flood_fill(data->xp, data->yp, data->map_copie);
 	find_item(data, 'C');
-
-	flood_fill_E(data->xP, data->yP, data->map_copie);
-	//  int j = 0;
-	// while (data->map_copie[j])
-	// {
-	// 	printf("%s\n", data->map_copie[j]);
-	// 	j++;
-	// }
+	flood_fill_exit(data->xp, data->yp, data->map_copie);
 	find_item(data, 'E');
 }
