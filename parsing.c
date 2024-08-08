@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:59:21 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/08 11:43:34 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:40:30 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,5 @@ void	parsing(int ac, char **av, t_data *data)
 		safe_exit(0, data, 1);
 	check_map(data);
 }
+//file d
+// '\0' in the end of array 
