@@ -6,15 +6,39 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:29:42 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/07 16:18:58 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/08 09:48:34 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	free_images2(t_data *data)
+{
+	if (data->exit_image != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->exit_image);
+	if (data->collect_image != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->collect_image);
+	if (data->playerdown != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->playerdown);
+	if (data->playerleft != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->playerleft);
+	if (data->playerright != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->playerright);
+	if (data->playerup != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->playerup);
+	if (data->wall_image != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->wall_image);
+	if (data->background_image != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->background_image);
+	mlx_destroy_window(data->mlx_ptr, data->mlx_window);
+	mlx_destroy_display(data->mlx_ptr);
+	free(data->mlx_ptr);
+	the_end(1, data, 0);
+}
+
 int	close_window(t_data *data)
 {
-	free_images(data);
+	free_images2(data);
 	free(data->mlx_ptr);
 	the_end(1, data, 0);
 	return (0);
@@ -56,9 +80,9 @@ void	display_map(t_data *data)
 {
 	number_of_collectibles(data);
 	data->mlx_ptr = mlx_init();
-	images_data(data);
 	data->mlx_window = mlx_new_window(data->mlx_ptr, 50 * data->x, 50 * data->y,
 			"so_long");
+	images_data(data);
 	put_images(data);
 	mlx_hook(data->mlx_window, 02, (1L << 0), player_movements, data);
 	mlx_hook(data->mlx_window, 17, 0, close_window, data);

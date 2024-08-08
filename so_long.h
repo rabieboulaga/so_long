@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:00:02 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/07 16:19:07 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/08 09:41:52 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -84,6 +83,7 @@ void		the_end(int nothing, t_data *data, int order);
 void		images_data2(t_data *data);
 int			close_window(t_data *data);
 void		flood_fill_exit(int x, int y, char **str);
+void		free_images2(t_data *data);
 
 # endif
 #endif

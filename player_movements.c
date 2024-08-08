@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:28:48 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/07 17:03:02 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/08 09:22:21 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	left(t_data *data)
 		put_all_images(data, '0', data->background_image);
 		data->xp -= 1;
 		data->number_of_moves++;
-		put_str("Number of mover : ", data->number_of_moves);
+		put_str("Number of moves : ", data->number_of_moves);
 	}
 	else if (data->map_real[data->yp][data->xp - 1] == 'E'
 			&& data->collectibles == 0)
 	{
 		data->number_of_moves++;
-		put_str("Number of mover : ", data->number_of_moves);
+		put_str("Number of moves : ", data->number_of_moves);
 		write(1, "you win\n", 8);
-		free_images(data);
+		free_images2(data);
 	}
 }
 
@@ -52,15 +52,15 @@ void	right(t_data *data)
 		put_all_images(data, '0', data->background_image);
 		data->xp += 1;
 		data->number_of_moves++;
-		put_str("Number of mover : ", data->number_of_moves);
+		put_str("Number of moves : ", data->number_of_moves);
 	}
 	else if (data->map_real[data->yp][data->xp + 1] == 'E'
 			&& data->collectibles == 0)
 	{
 		data->number_of_moves++;
-		put_str("Number of mover : ", data->number_of_moves);
+		put_str("Number of moves : ", data->number_of_moves);
 		write(1, "you win\n", 8);
-		free_images(data);
+		free_images2(data);
 	}
 }
 
@@ -86,7 +86,7 @@ void	up(t_data *data)
 		data->number_of_moves++;
 		put_str("Number of moves : ", data->number_of_moves);
 		write(1, "you win\n", 8);
-		free_images(data);
+		free_images2(data);
 	}
 }
 
@@ -112,7 +112,7 @@ void	down(t_data *data)
 		data->number_of_moves++;
 		put_str("Number of moves : ", data->number_of_moves);
 		write(1, "you win\n", 8);
-		free_images(data);
+		free_images2(data);
 	}
 }
 

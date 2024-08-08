@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:43:31 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/07 16:04:05 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/07 19:58:22 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,20 @@ void	images_data2(t_data *data)
 {
 	data->playerup = mlx_xpm_file_to_image(data->mlx_ptr,
 			"textures/playerup.xpm", &data->img_width, &data->img_height);
+	if (data->playerup == NULL)
+		free_images(data);
 	data->playerdown = mlx_xpm_file_to_image(data->mlx_ptr,
 			"textures/playerdown.xpm", &data->img_width, &data->img_height);
+	if (data->playerdown == NULL)
+		free_images(data);
 	data->exit_image = mlx_xpm_file_to_image(data->mlx_ptr,
 			"textures/lastexit.xpm", &data->img_width, &data->img_height);
+	if (data->exit_image == NULL)
+		free_images(data);
 	data->collect_image = mlx_xpm_file_to_image(data->mlx_ptr,
 			"textures/lastcollect.xpm", &data->img_width, &data->img_height);
+	if (data->collect_image == NULL)
+		free_images(data);
 }
 
 void	find_item(t_data *data, char c)

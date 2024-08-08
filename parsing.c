@@ -6,7 +6,7 @@
 /*   By: rboulaga <rboulaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:59:21 by rboulaga          #+#    #+#             */
-/*   Updated: 2024/08/07 17:01:06 by rboulaga         ###   ########.fr       */
+/*   Updated: 2024/08/08 11:43:34 by rboulaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	check_path(char *av, t_data *data)
 		i--;
 	if ((!av[i - 1]) || av[i - 1] == '/')
 		safe_exit(0, data, 1);
-	if (ft_strncmp(&av[i], ".ber", 5) != 0)
+	if (ft_strncmp(&av[i], ".ber", 4) != 0)
 		safe_exit(0, data, 1);
 }
 
